@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
+import Cart from './pages/Cart';
+import { CartProvider } from './contexts/CartContext';
 
 const useStyles = makeStyles({
   root: {
@@ -16,17 +18,22 @@ const useStyles = makeStyles({
 const App = () => {
   const classes = useStyles();
   return (
-    <Router>
-      <CssBaseLine />
-      <NavBar />
-      <Container className={classes.root}>
-        <Switch>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </Container>
-    </Router>
+    <CartProvider>
+      <Router>
+        <CssBaseLine />
+        <NavBar />
+        <Container className={classes.root}>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/cart'>
+              <Cart />
+            </Route>
+          </Switch>
+        </Container>
+      </Router>
+    </CartProvider>
   );
 };
 
