@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import { CartProvider } from './contexts/CartContext';
 
 const useStyles = makeStyles({
@@ -29,6 +30,9 @@ const App = () => {
             </Route>
             <Route path='/cart'>
               <Cart />
+            </Route>
+            <Route path='/checkout'>
+              <Checkout />
             </Route>
           </Switch>
         </Container>

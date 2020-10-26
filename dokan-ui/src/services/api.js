@@ -8,7 +8,12 @@ const createAxios = () => {
   return axios.create(params);
 };
 
-export const fetchProducts = async () => {
-  const { data } = await createAxios().get('/products');
+export const fetchProducts = async (query = '') => {
+  const { data } = await createAxios().get(`/products?${query}`);
+  return data;
+};
+
+export const createOrder = async order => {
+  const { data } = await createAxios().post('/orders', order);
   return data;
 };
