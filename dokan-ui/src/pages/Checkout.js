@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 import { Button, makeStyles } from '@material-ui/core';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
 import CartDetail from '../components/CartDetail';
 import PersonalDetailForm from '../components/PersonaDetailForm';
 import { CartContext } from '../contexts/CartContext';
@@ -14,6 +15,7 @@ const useStyles = makeStyles({
 });
 
 const Checkout = () => {
+  const history = useHistory();
   const classes = useStyles();
   const { cart } = useContext(CartContext);
   const fomrik = useFormik({
@@ -45,7 +47,8 @@ const Checkout = () => {
           ...values,
           total: `${total}`,
         });
-        console.log(order);
+
+        history.push(`/orders/${order.code}`);
       } catch (e) {
         console.error(e);
       }

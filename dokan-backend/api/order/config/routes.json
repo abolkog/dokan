@@ -18,8 +18,16 @@
     },
     {
       "method": "GET",
-      "path": "/orders/:id",
+      "path": "/orders/:code",
       "handler": "order.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/orders/:code",
+      "handler": "order.updateOrderStatus",
       "config": {
         "policies": []
       }

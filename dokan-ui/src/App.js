@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Order from './pages/Order';
 import { CartProvider } from './contexts/CartContext';
 
 const useStyles = makeStyles({
@@ -33,6 +34,9 @@ const App = () => {
             </Route>
             <Route path='/checkout'>
               <Checkout />
+            </Route>
+            <Route path='/orders/:code'>
+              <Order />
             </Route>
           </Switch>
         </Container>
